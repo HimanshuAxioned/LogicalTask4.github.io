@@ -26,26 +26,35 @@ p { margin: 0;}
   align-items: center;
 }
 
-.logo > span { 
-  position: absolute;
-  right: 1em;
+.logo > p { 
+  width: 100%;
   font-size: 1.2em;
+  text-align: right;
 }
 
-.priorities { font-size: 1.2em;  }
+.logo > p a {
+  color: #ffffff;
+  cursor: pointer;
+  text-decoration: none;
+ }
+
+ .stop { display: none; }
+
+.priorities {
+  text-align: center; 
+  font-size: 1.2em;  
+}
 
 .priorities-content { 
-  margin: 2em 0;
+  margin: 1.5em 0;
   display: flex;
   justify-content: space-evenly;
 }
 
-.priorities-content div { 
+.priorities-content > div { 
   width: 25%;
-  margin-bottom: 1em;
-  padding-bottom: 28%;
+  margin-bottom: 2em ;
   text-align: center;
-  border: 1px solid #d3d3d3;
   border-radius: 0.5em;
 }
 
@@ -55,6 +64,15 @@ p { margin: 0;}
   border-top-right-radius: 0.5em;
 }
 
+
+.item{ 
+  height: 12em;
+  border: 1px solid #d3d3d3;
+  border-bottom-left-radius: 0.5em;
+  border-bottom-right-radius: 0.5em;
+
+}
+
 .high p { background: #ff0000; }
 
 .medium p { background: #ffa500; }
@@ -62,10 +80,12 @@ p { margin: 0;}
 .low p { background: #ffff00; }
 
 .task {
+  margin: 1em;
   padding: 0.5em 1em;
   border-radius: 0.5em;
   background: #000000;
   color: #ffffff;
+  font-size: 0.75em;
 }
 
 .bottom-logo { 
@@ -75,3 +95,4 @@ p { margin: 0;}
   background: #000000;
   align-items: center;
  }
+
