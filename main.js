@@ -1,6 +1,6 @@
 let start = document.querySelector('.start')
 let stop = document.querySelector('.stop')
-let dropItem = document.querySelectorAll('.drop-item')
+let restart = document.querySelector('.restart')
 let highItem = document.querySelector('.high-item');
 let mediumItem = document.querySelector('.medium-item');
 let lowItem = document.querySelector('.low-item');
@@ -23,10 +23,21 @@ function funstart() {
 
   for (let i = 0; i < draggables.length; i++) {
     draggables[i].setAttribute('draggable', true);
-    draggables[i].style.display = 'inline-block';
+
     draggables[i].addEventListener('dragstart', function (e) {
+      draggables[i].classList.add('dragging');
       e.dataTransfer.setData('sourceId', e.target.id);
     })
+
+    draggables[i].addEventListener('dragend', function () {
+      draggables[i].classList.remove('dragging')
+    })
+
+    draggables[i].addEventListener('drop', function (e) {
+      e.stopPropagation();
+    }, true)
+
+
   }
 
 
@@ -35,23 +46,22 @@ function funstart() {
 
     item[i].addEventListener('dragover', function (e) {
       e.preventDefault();
+
     })
 
     item[i].addEventListener('drop', function (e) {
       e.preventDefault();
-
       let target = e.target;
       let sourceId = e.dataTransfer.getData('sourceId');
-      let dt = target.appendChild(document.getElementById(sourceId));
+      let dt =  target.appendChild(document.getElementById(sourceId));
       dt;
-      dt.style.visibility = 'hidden';
 
       let count = item[i].childElementCount;
       count;
       console.log(target.id, count);
 
 
-      if (target.id == 'high' ) {
+      if (target.id == 'high') {
         highList.push(sourceId);
       }
 
@@ -66,24 +76,21 @@ function funstart() {
       else {
         console.log('Target not found');
       }
-      let uHigh= new Set(highList);
-      let uniqueHigh= Array.from(uHigh);
-      console.log('HighList =>',uniqueHigh)
+      let uHigh = new Set(highList);
+      let uniqueHigh = Array.from(uHigh);
+      console.log('HighList =>', uniqueHigh)
 
-      let uMedium= new Set(mediumList);
-      let uniqueMedium= Array.from(uMedium);
-      console.log('MediumList =>',uniqueMedium)
+      let uMedium = new Set(mediumList);
+      let uniqueMedium = Array.from(uMedium);
+      console.log('MediumList =>', uniqueMedium)
 
-      let uLow= new Set(lowList);
-      let uniqueLow= Array.from(uLow);
-      console.log('LowList =>',uniqueLow)
+      let uLow = new Set(lowList);
+      let uniqueLow = Array.from(uLow);
+      console.log('LowList =>', uniqueLow)
 
     })
-
   }
-
 }
-
 
 
 stop.addEventListener('click', function () {
@@ -94,6 +101,10 @@ stop.addEventListener('click', function () {
   }
 
 });
+
+restart.addEventListener('click', function () {
+  window.location.reload();
+})
 
 start.addEventListener('click', funstart);
 

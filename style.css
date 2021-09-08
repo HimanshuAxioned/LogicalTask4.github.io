@@ -8,6 +8,12 @@ body {
 
 p { margin: 0;}
 
+ul { 
+  margin: 0;
+  padding:0 10%;
+ }
+
+
 .main-content { 
   width: 75.5%;
   margin: 0 auto;
@@ -28,20 +34,29 @@ p { margin: 0;}
 
 .logo > p { 
   width: 100%;
-  font-size: 1.2em;
-  text-align: right;
+  margin-right: 0.5em;
+  padding-right: 0.5em;
+  border-right: 1px solid #ffffff;
+  text-align: right; 
 }
 
-.logo > p a {
+.logo span {
+  width: 100%;
+}
+
+
+.main-content a {
   color: #ffffff;
+  font-size: 1.2em;
   cursor: pointer;
   text-decoration: none;
  }
 
+
+
  .stop { display: none; }
 
 .priorities {
-  text-align: center; 
   font-size: 1.2em;  
 }
 
@@ -53,9 +68,11 @@ p { margin: 0;}
 
 .priorities-content > div { 
   width: 25%;
+  max-height: 20em;
   margin-bottom: 2em ;
   text-align: center;
   border-radius: 0.5em;
+
 }
 
 .priorities-content p { 
@@ -66,11 +83,11 @@ p { margin: 0;}
 
 
 .item{ 
-  height: 12em;
+  height: 13em;
   border: 1px solid #d3d3d3;
   border-bottom-left-radius: 0.5em;
   border-bottom-right-radius: 0.5em;
-
+  align-items: center;
 }
 
 .high p { background: #ff0000; }
@@ -80,13 +97,16 @@ p { margin: 0;}
 .low p { background: #ffff00; }
 
 .task {
-  margin: 1em;
+  margin: 0.5em;
   padding: 0.5em 1em;
   border-radius: 0.5em;
   background: #000000;
   color: #ffffff;
   font-size: 0.75em;
 }
+
+
+.task-ul { display: flex;}
 
 .bottom-logo { 
   margin-top: 3em;
